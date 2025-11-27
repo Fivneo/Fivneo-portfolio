@@ -188,7 +188,16 @@ main {
   top: 0;
   color: #22c55e;
 }
+.school-link {
+  text-decoration: underline;
+  color: #22c55e;
+  font-weight: 600;
+  cursor: pointer;
+}
 
+.school-link:hover {
+  opacity: 0.85;
+}
 /* Footer */
 footer {
   text-align: center;
