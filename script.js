@@ -1,13 +1,17 @@
 // Data pendidikan (dipakai di popup Riwayat Pendidikan)
 const POPUP_DATA = {
   skills: {
-    title: "Skills",
-    items: [
-      { text: "Terampil dalam berbahasa Inggris" },
-      { text: "Menguasai semua aplikasi Microsoft Office di Windows" },
-      { text: "Cepat beradaptasi dengan lingkungan sekitar" }
-    ]
-  },
+  title: "Skills",
+  items: [
+    { text: "Kepemimpinan & organisasi – pernah menjadi Ketua Bidang Pendidikan Pramuka dan mendapat apresiasi tinggi." },
+    { text: "Prestasi akademik – Juara 1 bertahan di SMP dan Juara 3 Olimpiade IPS." },
+    { text: "Belajar mandiri – terbiasa memulai dari nol dan konsisten belajar hal baru." },
+    { text: "Pemecahan masalah – berusaha cari solusi sendiri dulu sebelum menyerah atau minta bantuan." },
+    { text: "Komunikasi & kerja sama – pengalaman membimbing dan mengatur teman satu organisasi." },
+    { text: "Bahasa & teknologi – terampil berbahasa Inggris dan menguasai aplikasi Microsoft Office di Windows." },
+    { text: "Fokus & strategi – terbiasa melatih fokus dan cara berpikir lewat bermain game dengan sadar." }
+  ]
+},
   pendidikan: {
     title: "Riwayat Pendidikan",
     items: [
