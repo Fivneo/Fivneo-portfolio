@@ -6,6 +6,7 @@ const POPUP_DATA = {
       "Terampil dalam berbahasa Inggris",
       "Menguasai semua aplikasi Microsoft Office di Windows",
       "Cepat beradaptasi dengan lingkungan sekitar"
+      "Bisa membuat planet sebesar matahari"
     ]
   },
   riwayat: {
