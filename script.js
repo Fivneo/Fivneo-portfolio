@@ -17,7 +17,8 @@ const POPUP_DATA = {
       },
       {
         text: "SMPN 1 Waled",
-        link: "http://smpn1waledcirebon.com"
+        // GANTI baris ini:
+        link: "https://data-sekolah.zekolah.id/sekolah/smp-negeri-1-waled-42773"
       },
       {
         text: "SMK Muhammadiyah Lemahabang",
