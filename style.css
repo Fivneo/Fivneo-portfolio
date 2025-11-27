@@ -24,7 +24,7 @@ body {
   z-index: 10;
 }
 
-.navbar .logo {
+.logo {
   font-weight: 700;
   letter-spacing: 2px;
   font-size: 0.95rem;
@@ -36,12 +36,16 @@ body {
 }
 
 /* Hero */
+main {
+  padding-top: 64px; /* biar gak ketutup navbar */
+}
+
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 24px 40px;
+  padding: 40px 24px;
   background: radial-gradient(circle at top, #1d4ed8, #020617);
 }
 
@@ -58,7 +62,7 @@ body {
   margin-bottom: 8px;
 }
 
-.hero-content h1 {
+.hero-name {
   font-size: 2.6rem;
   margin-bottom: 4px;
 }
@@ -74,7 +78,7 @@ body {
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 /* Buttons */
@@ -111,51 +115,46 @@ body {
   opacity: 0.9;
 }
 
-/* Popup */
-.popup {
+/* Popup overlay */
+.popup-overlay {
   position: fixed;
   inset: 0;
-  display: flex;
+  display: none;               /* nanti diubah js jadi flex */
   justify-content: center;
   align-items: center;
   padding: 24px;
-  background: rgba(15, 23, 42, 0.6);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
-  z-index: 20;
+  background: rgba(15, 23, 42, 0.7);
+  z-index: 50;
 }
 
+/* card: animasi dari kotak kecil ke panjang */
 .popup-card {
   background: #020617;
   border-radius: 20px;
   border: 1px solid #1f2937;
   padding: 18px 18px 20px;
-  max-width: 480px;
   width: 100%;
+  max-width: 480px;
   max-height: 80vh;
   overflow-y: auto;
+
+  transform-origin: center;
   transform: scale(0.7);
   opacity: 0;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.popup.show {
+/* state saat popup aktif */
+.popup-overlay.is-visible .popup-card {
   opacity: 1;
-  pointer-events: auto;
-}
-
-.popup.show .popup-card {
   transform: scale(1);
-  opacity: 1;
 }
 
-/* Close button */
 .popup-close {
   border: none;
   background: transparent;
   color: #9ca3af;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   float: right;
 }
@@ -164,25 +163,25 @@ body {
   color: #e5e7eb;
 }
 
-#popup-title {
+.popup-title {
   font-size: 1.2rem;
   margin-bottom: 10px;
   text-align: left;
 }
 
-#popup-content {
+.popup-list {
   list-style: none;
   text-align: left;
   font-size: 0.95rem;
 }
 
-#popup-content li {
+.popup-list li {
   margin-bottom: 8px;
   padding-left: 16px;
   position: relative;
 }
 
-#popup-content li::before {
+.popup-list li::before {
   content: "•";
   position: absolute;
   left: 0;
@@ -202,7 +201,7 @@ footer {
 
 /* Responsive */
 @media (max-width: 640px) {
-  .hero-content h1 {
+  .hero-name {
     font-size: 2rem;
   }
 
