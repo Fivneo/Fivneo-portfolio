@@ -115,7 +115,9 @@ main { padding-top: 64px; }
 }
 .secondary {
   background: transparent;
-  border: 1px solid #4b5563;
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  box-shadow: 0 0 12px #22c55e40;
 }
 .tertiary {
   background: transparent;
