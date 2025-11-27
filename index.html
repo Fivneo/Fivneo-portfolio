@@ -16,7 +16,6 @@
 
   <main>
     <section class="hero">
-      <!-- layer efek cyber -->
       <div class="hero-grid"></div>
 
       <div class="hero-content">
@@ -26,21 +25,59 @@
         <p class="hero-tagline">Initializing human profile_</p>
 
         <div class="hero-buttons">
-          <button class="btn primary" data-popup="skills">
-            Skills
-          </button>
-          <button class="btn secondary" data-popup="riwayat">
-            Riwayat Hidup
-          </button>
+          <button class="btn primary" data-popup="skills">Skills</button>
+          <button class="btn secondary" data-popup="riwayat">Riwayat Hidup</button>
+          <button class="btn tertiary" onclick="scrollToAbout()">About Me</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="about">
+      <div class="about-inner">
+        <h2 class="about-title">About Me</h2>
+        <p class="about-intro">
+          Nama gue <span>Karnaca</span>, lahir dan besar di Cirebon.
+          Lagi fokus ningkatin skill buat masa depan yang realistis—pelan tapi pasti.
+          Gak buru-buru, yang penting konsisten & maju terus.
+        </p>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Data Singkat</h3>
+            <ul>
+              <li>Asal: Cirebon, Indonesia</li>
+              <li>Pendidikan: SMK Muhammadiyah Lemahabang</li>
+              <li>Fokus: Skill kerja & hidup nyata</li>
+            </ul>
+          </div>
+
+          <div class="about-card">
+            <h3>Cara Kerja</h3>
+            <ul>
+              <li>Praktik dulu, teori belakangan</li>
+              <li>Belajar cepat & adaptif lingkungan</li>
+              <li>Cari solusi sendiri sebelum nyerah</li>
+            </ul>
+          </div>
+
+          <div class="about-card">
+            <h3>Goal</h3>
+            <ul>
+              <li>Dapat pekerjaan stabil & profesional</li>
+              <li>Upgrade skill digital bertahap</li>
+              <li>Bisa bantu keluarga & survive sendiri</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Popup overlay -->
+  <!-- POPUP OVERLAY -->
   <div id="popup-overlay" class="popup-overlay">
     <div class="popup-card">
-      <button class="popup-close" aria-label="Tutup popup">&times;</button>
+      <button class="popup-close">&times;</button>
       <h3 id="popup-title" class="popup-title"></h3>
       <ul id="popup-list" class="popup-list"></ul>
     </div>
