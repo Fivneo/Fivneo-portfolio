@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = overlay.querySelector(".popup-close");
   const buttons = document.querySelectorAll("[data-popup]");
 
-  // === LOGIKA POPUP ===
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const type = btn.getAttribute("data-popup");
@@ -58,72 +57,53 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           li.textContent = item.text;
         }
-
         listEl.appendChild(li);
       });
 
-      // tampilkan popup + animasi
       overlay.style.display = "flex";
-      requestAnimationFrame(() => {
-        overlay.classList.add("is-visible");
-      });
+      requestAnimationFrame(() => overlay.classList.add("is-visible"));
     });
   });
 
-  function closePopup() {
+  closeBtn.addEventListener("click", () => {
     overlay.classList.remove("is-visible");
-    setTimeout(() => {
-      overlay.style.display = "none";
-    }, 250);
-  }
-
-  closeBtn.addEventListener("click", closePopup);
+    setTimeout(() => (overlay.style.display = "none"), 250);
+  });
 
   overlay.addEventListener("click", (e) => {
-    const card = overlay.querySelector(".popup-card");
-    if (!card.contains(e.target)) {
-      closePopup();
+    if (!document.querySelector(".popup-card").contains(e.target)) {
+      overlay.classList.remove("is-visible");
+      setTimeout(() => (overlay.style.display = "none"), 250);
     }
   });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closePopup();
-    }
-  });
-
-  // === EFEK TYPEWRITER SEDERHANA UNTUK NAMA & TAGLINE ===
+  // TYPEWRITER effect
   const nameEl = document.querySelector(".hero-name");
-  const taglineEl = document.querySelector(".hero-tagline");
+  const tagEl = document.querySelector(".hero-tagline");
 
   const nameText = "Karnaca";
-  const taglineText = "Initializing human profile";
+  const tagText = "Initializing human profile";
 
-  if (nameEl && taglineEl) {
-    nameEl.textContent = "";
-    taglineEl.textContent = "";
+  let i = 0, j = 0;
+  nameEl.textContent = "";
+  tagEl.textContent = "";
 
-    let i = 0;
-    let j = 0;
-
-    function typeName() {
-      if (i <= nameText.length) {
-        nameEl.textContent = nameText.slice(0, i);
-        i++;
-        setTimeout(typeName, 120);
-      } else {
-        setTimeout(typeTagline, 250);
-      }
-    }
-
-    function typeTagline() {
-      if (j <= taglineText.length) {
-        taglineEl.textContent = taglineText.slice(0, j);
-        j++;
-        setTimeout(typeTagline, 70);
-      }
-    }
-
-    typeName();
+  function typeName() {
+    if (i <= nameText.length) {
+      nameEl.textContent = nameText.slice(0, i++);
+      setTimeout(typeName, 120);
+    } else setTimeout(typeTag, 250);
   }
+  function typeTag() {
+    if (j <= tagText.length) {
+      tagEl.textContent = tagText.slice(0, j++);
+      setTimeout(typeTag, 70);
+    }
+  }
+  typeName();
 });
+
+// Scroll smooth to about
+function scrollToAbout() {
+  document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+}
