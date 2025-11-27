@@ -19,9 +19,9 @@ const POPUP_DATA = {
         text: "SMPN 1 Waled",
         link: "https://data-sekolah.zekolah.id/sekolah/smp-negeri-1-waled-42773"
       },
-      {
-        text: "SMK Muhammadiyah Lemahabang",
-        link: "https://smkmla-crb.sch.id/"
+      { 
+  text: "SMK Muhammadiyah Lemahabang", 
+  link: "https://data-sekolah.zekolah.id/sekolah/smk-muhammadiyah-lemahbang-<kode>" 
       }
     ]
   }
