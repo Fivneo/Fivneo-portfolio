@@ -46,15 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
       data.items.forEach((item) => {
         const li = document.createElement("li");
 
+        // Kalau punya link, jadikan <a>
         if (item.link) {
           const a = document.createElement("a");
           a.href = item.link;
           a.target = "_blank";
+          a.rel = "noopener noreferrer";
           a.textContent = item.text;
-          a.style.textDecoration = "none";
-          a.style.color = "#22c55e";
-          a.style.fontWeight = "600";
-
+          a.className = "school-link";
           li.appendChild(a);
         } else {
           li.textContent = item;
