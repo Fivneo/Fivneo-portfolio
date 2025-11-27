@@ -17,7 +17,6 @@ const POPUP_DATA = {
       },
       {
         text: "SMPN 1 Waled",
-        // GANTI baris ini:
         link: "https://data-sekolah.zekolah.id/sekolah/smp-negeri-1-waled-42773"
       },
       {
@@ -35,18 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = overlay.querySelector(".popup-close");
   const buttons = document.querySelectorAll("[data-popup]");
 
-  // Klik tombol Skills / Riwayat Hidup
+  // === LOGIKA POPUP ===
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const type = btn.getAttribute("data-popup");
       const data = POPUP_DATA[type];
       if (!data) return;
 
-      // Judul popup
       titleEl.textContent = data.title;
-
-      // Isi list
       listEl.innerHTML = "";
+
       data.items.forEach((item) => {
         const li = document.createElement("li");
 
@@ -65,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         listEl.appendChild(li);
       });
 
-      // Tampilkan popup + animasi
+      // tampilkan popup + animasi
       overlay.style.display = "flex";
       requestAnimationFrame(() => {
         overlay.classList.add("is-visible");
@@ -80,10 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 250);
   }
 
-  // Tombol X
   closeBtn.addEventListener("click", closePopup);
 
-  // Klik area gelap di luar card
   overlay.addEventListener("click", (e) => {
     const card = overlay.querySelector(".popup-card");
     if (!card.contains(e.target)) {
@@ -91,10 +86,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Tombol ESC (kalau buka di PC)
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closePopup();
     }
   });
+
+  // === EFEK TYPEWRITER SEDERHANA UNTUK NAMA & TAGLINE ===
+  const nameEl = document.querySelector(".hero-name");
+  const taglineEl = document.querySelector(".hero-tagline");
+
+  const nameText = "Karnaca";
+  const taglineText = "Initializing human profile";
+
+  if (nameEl && taglineEl) {
+    nameEl.textContent = "";
+    taglineEl.textContent = "";
+
+    let i = 0;
+    let j = 0;
+
+    function typeName() {
+      if (i <= nameText.length) {
+        nameEl.textContent = nameText.slice(0, i);
+        i++;
+        setTimeout(typeName, 120);
+      } else {
+        setTimeout(typeTagline, 250);
+      }
+    }
+
+    function typeTagline() {
+      if (j <= taglineText.length) {
+        taglineEl.textContent = taglineText.slice(0, j);
+        j++;
+        setTimeout(typeTagline, 70);
+      }
+    }
+
+    typeName();
+  }
 });
